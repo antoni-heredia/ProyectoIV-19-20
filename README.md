@@ -10,3 +10,8 @@ Para el gestionar el flujo de trabajo no estoy seguro todavía cual usar. Ya que
 ## Ampliación opcional
 
 Como posible ampliación para el sistema he pensado en almacenar la imagen que nos han enviado y la ubicación posible detectada. Para que los encargados ( en este caso yo)  puedan revisar si esta encontrado de manera adecuada a Wally. En caso de añadir esta funcionalidad usaría [MongoDB](https://www.mongodb.com/es) mas específicamente la librería [PyMongo](https://api.mongodb.com/python/current/).
+
+
+## Dataset de datos a usar
+
+Buscando por github he encontrado un repositorio con imágenes ya clasificadas de Wally. El repositorio tiene licencia [ODbL](https://es.wikipedia.org/wiki/Licencia_Abierta_de_Bases_de_Datos) y se encuentra en el siguiente [link](https://github.com/vc1492a/Hey-Waldo).
