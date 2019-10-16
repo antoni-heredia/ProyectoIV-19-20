@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/antoni-heredia/WallysFinder.svg?branch=master)](https://travis-ci.org/antoni-heredia/WallysFinder)
+[![CircleCI](https://circleci.com/gh/antoni-heredia/WallysFinder.svg?style=svg)](https://circleci.com/gh/antoni-heredia/WallysFinder)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
@@ -14,6 +15,7 @@
   - [Dataset de datos a usar](#dataset-de-datos-a-usar)
   - [Herramienta de construcción](#herramienta-de-construcci%c3%b3n)
   - [Sistema CI](#sistema-ci)
+  - [Tests](#tests)
 
 
 ## Descripción
@@ -71,6 +73,19 @@ script:
   - make test 
  ```
  La descripción de __install:__ es para que instale las dependencias necesarias para realizar los test y __script:__ es para ver que tiene que ejecutar para realizar los test. 
+
+ Como sistema adicional también he añadido [Circle Ci](https://circleci.com/). La configuración de Circle Ci va en el fichero [.circleci/config.yml](.circleci/config.yml). En la cual especifico que vamos a usar la imagen Docker [circle/python:3.6.4](https://circleci.com/docs/2.0/circleci-images/#python). Y luego le especificamos los siguientes pasos:
+
+1. ```checkout```: Para obtener el codigo
+2. ```make initCircle ```: Para instalar las dependencias e iniciar el proyecto.
+3. ```make test```: Para ejecutar los test
+ 
+ Como [Circle Ci](https://circleci.com/) funciona un poco diferente a [Travis-Ci](travis-ci.org) he creado otras reglas en el [makefile](./Makefile) para que pueda funcionar. Las dependencias en Circle se deben instalar con el flag  ```--user ``` con los permisos. Ademas Circle no permite ejecutar  ```pytest ``` como comando se tiene que realizar de la siguiente forma:
+
+ ```console
+foo@bar:~$ python -m pytest
+
+ ``` 
 
  ## Tests
 Para realizar los test he usado [pytest](https://docs.pytest.org/en/latest/) como he mencionado mas arriba. 
