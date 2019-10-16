@@ -11,9 +11,9 @@ jobs:
       - run:
           name: Instalar dependencias e iniciar
           command: |
-            make init
+            make initCircle
       # command to run tests
       - run:
           name: Run tests
           command: |
-             - make test
+             - make tests
