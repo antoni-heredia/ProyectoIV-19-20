@@ -11,4 +11,4 @@ init: dependencias #Inicia el microservicio
 initCircle: dependenciasCircle #Inicia el microservicio
 
 tests: #Para relizar los test
-	pytest test/test_img.py
+	python -m pytest test/test_img.py
