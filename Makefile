@@ -1,7 +1,7 @@
 .PHONY: tests dependencias #Indica el target es ficticio, y que el make no debería crear el archivo.
 
 dependencias: #Instala las dependencias
-	pip install -r --user requirements.txt
+	pip install  --user -r requirements.txt
 
 init: dependencias #Inicia el microservicio
 
