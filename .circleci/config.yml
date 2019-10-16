@@ -1,0 +1,19 @@
+version: 1
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.4
+    steps:
+      # Obtenemos codigo del repo
+      - checkout
+
+      # Instalar dependencias e iniciar
+      - run:
+          name: Instalar dependencias e iniciar
+          command: |
+            make init
+      # command to run tests
+      - run:
+          name: Run tests
+          command: |
+             - make test
