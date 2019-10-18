@@ -23,7 +23,7 @@ Este proyecto es para la asignatura de Infraestructura Virtual. Este proyecto co
 
 ## Implementación
 
-La implementación de la API la desarrollare en [Python](https://www.python.org) usando [Django](www.djangoproject.com) + [REST Framework](https://www.django-rest-framework.org/). Esta elección se debe a que quiero usar el mismo lenguaje para ofrecer la API como para realizar el procesamiento de la imagen. 
+La implementación de la API la desarrollare en [Python](https://www.python.org) usando [Flask](https://palletsprojects.com/p/flask/)+[Flask-restful](https://flask-restful.readthedocs.io/en/latest/).. Esta elección se debe a que quiero usar el mismo lenguaje para ofrecer la API como para realizar el procesamiento de la imagen. 
 
 Para encontrar la ubicación de Wally usare [Keras](https://keras.io/) mas específicamente [Faster R-CNN](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a). __El entrenamiento de la red neuronal no es parte del microservicio__. Podriamos usar una funcionalidad que ya existiera o usar una entrenada por mi como quiero intentar en este caso. 
 
