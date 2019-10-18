@@ -1,7 +1,6 @@
 numpy
-django
-djangorestframework
+flask
+flask_restful
 markdown
-django-filter
 pytest
 requests

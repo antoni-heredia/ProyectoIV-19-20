@@ -16,6 +16,7 @@
   - [Herramienta de construcción](#herramienta-de-construcci%c3%b3n)
   - [Sistema CI](#sistema-ci)
   - [Tests](#tests)
+  - [Inciar microservicio](#inciar-microservicio)
 
 
 ## Descripción
@@ -91,3 +92,11 @@ foo@bar:~$ python -m pytest
 Para realizar los test he usado [pytest](https://docs.pytest.org/en/latest/) como he mencionado mas arriba. 
 
 Ahora mismo solo tengo un unico test ya que no se me ocurre otro que peuda necesitar. El test consiste en comprobar si lo que recibe a traves de la API es una imagen. Para ello comprobamos el MIME Type del fichero y miramos si corresponde a una imagen, ya que no nos importa el formato de la misma.
+
+## Inciar microservicio
+
+Aunque solo muestra un ```Hello World``` para iniciar el microservicio lo unico que hay que hacer es:
+ ```console
+foo@bar:~$ python microservicio/main.py
+
+ ``` 
