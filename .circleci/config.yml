@@ -2,14 +2,18 @@ version: 1
 jobs:
   build:
     docker:
-      - image: messa/circleci-python-with-mongodb:3.6
+      - image: circleci/python:3.6.4
     steps:
       # Obtenemos codigo del repo
       - checkout
       - run:
-          name: Crear usuario mongo
-          command: |
-            mongo mydb_test --eval 'db.createUser({user:"admin",pwd:"test",roles:["readWrite"]});'
+        name: instalar mongo
+        command: |
+          sudo apt-get install mongodb
+      - run:
+        name: Crear usuario mongo
+        command: |
+          mongo mydb_test --eval 'db.createUser({user:"admin",pwd:"test",roles:["readWrite"]});'
       # Instalar dependencias e iniciar
       - run:
           name: Instalar dependencias e iniciar
