@@ -3,23 +3,22 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.6.4
+    dependencies:
+      cache_directories:
+        - mongodb-linux-x86_64-ubuntu1204-3.2.0
+      pre:
+        - if [[ ! -d mongodb-linux-x86_64-ubuntu1204-3.2.0 ]]; then wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1204-3.2.0.tgz && tar xvzf mongodb-linux-x86_64-ubuntu1204-3.2.0.tgz; fi
+        - sudo stop mongodb
+        - sudo cp mongodb-linux-x86_64-ubuntu1204-3.2.0/bin/* /usr/bin
+        - sudo start mongodb
+        
     steps:
       # Obtenemos codigo del repo
       - checkout
-
-      - run:
-          name: instalar mongo
-          command: |
-            sudo apt-get install mongodb 
-      
-      - run:
-          name: iniciar mongo
-          command: |
-            sudo service mongodb start
       - run:
           name: Crear usuario mongo
           command: |
-            mongo mydb_test --eval 'db.addUser({user:"admin",pwd:"test",roles:["readWrite"]});'
+            mongo mydb_test --eval 'db.createUser({user:"admin",pwd:"test",roles:["readWrite"]});'
       # Instalar dependencias e iniciar
       - run:
           name: Instalar dependencias e iniciar
