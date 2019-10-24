@@ -10,7 +10,12 @@ jobs:
       - run:
           name: instalar mongo
           command: |
-            sudo apt-get install mongodb | sudo service mongodb start
+            sudo apt-get install mongodb 
+      
+      - run:
+          name: iniciar mongo
+          command: |
+            sudo service mongodb start
       - run:
           name: Crear usuario mongo
           command: |
