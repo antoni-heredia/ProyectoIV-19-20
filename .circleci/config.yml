@@ -6,14 +6,15 @@ jobs:
     steps:
       # Obtenemos codigo del repo
       - checkout
+
       - run:
-        name: instalar mongo
-        command: |
-          sudo apt-get install mongodb
+          name: instalar mongo
+          command: |
+            sudo apt-get install mongodb
       - run:
-        name: Crear usuario mongo
-        command: |
-          mongo mydb_test --eval 'db.createUser({user:"admin",pwd:"test",roles:["readWrite"]});'
+          name: Crear usuario mongo
+          command: |
+            mongo mydb_test --eval 'db.createUser({user:"admin",pwd:"test",roles:["readWrite"]});'
       # Instalar dependencias e iniciar
       - run:
           name: Instalar dependencias e iniciar
