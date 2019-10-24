@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Crear usuario mongo
           command: |
-            mongo mydb_test --eval 'db.createUser({user:"admin",pwd:"test",roles:["readWrite"]});'
+            mongo mydb_test --eval 'db.addUser({user:"admin",pwd:"test",roles:["readWrite"]});'
       # Instalar dependencias e iniciar
       - run:
           name: Instalar dependencias e iniciar
