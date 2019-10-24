@@ -58,7 +58,7 @@ foo@bar:~$ make tests
 ```
 Ahora mismo el único test que se realiza es el de comprobar que lo enviado es una imagen, ya que no nos importa el formato especifico. 
 
-Aunque esta preparado el  ``` make init``` aun no esta ejecutando nada ya que no tengo preparado el microservicio. 
+Con ```make init``` podremos iniciar el microservicio
 ## Sistema CI
 
 Para la gestión de flujo de trabajo al final he decidido usar [Travis-CI](https://travis-ci.org/) . La elección se debe que es un sistema gratuito y tener integración fácil con github.
@@ -92,11 +92,11 @@ foo@bar:~$ python -m pytest
 Para realizar los test he usado [pytest](https://docs.pytest.org/en/latest/) como he mencionado mas arriba. 
 
 Ahora mismo solo tengo un unico test ya que no se me ocurre otro que peuda necesitar. El test consiste en comprobar si lo que recibe a traves de la API es una imagen. Para ello comprobamos el MIME Type del fichero y miramos si corresponde a una imagen, ya que no nos importa el formato de la misma.
-
 ## Inciar microservicio
 
-Aunque solo muestra un ```Hello World``` para iniciar el microservicio lo unico que hay que hacer es:
+Aunque solo muestra un ```Hello World``` para iniciar el microservicio lo único (en caso de que esten instaladas las dependencias) que hay que hacer es:
  ```console
 foo@bar:~$ python microservicio/main.py
 
  ``` 
+ Tambien podemos usar ```make init```,  de esta forma primero instalara las dependencias y luego iniciara el microservicio
