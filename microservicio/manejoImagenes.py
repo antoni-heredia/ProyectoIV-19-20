@@ -7,7 +7,7 @@ import ruamel.yaml
 #data = yaml.load(open('microservicio/config_db.cfg'))
 
 def conectarMongo(data):
-    client = pymongo.MongoClient("mongodb+srv://"+data['db_user']+":"+data['db_password']+"@"+data['db_host']+"/"+data['db_name']+"?retryWrites=true&w=majority")
+    client = pymongo.MongoClient("mongodb"+data['db_srv']+"://"+data['db_user']+":"+data['db_password']+"@"+data['db_host']+"/"+data['db_name']+"?retryWrites=true&w=majority")
     return client
 
 def guardarImagen(client,imagen,nombre):
@@ -23,7 +23,6 @@ def eliminarTodasImagenes(client):
 
 
 def devolverImagen(client,nombre):
-    client = conectarMongo()
     mydb = client["Wally"]
     mycol = mydb["imagenesEntrada"]
     myquery = { "nombre": "wally" }
