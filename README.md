@@ -91,7 +91,12 @@ foo@bar:~$ python -m pytest
  ## Tests
 Para realizar los test he usado [pytest](https://docs.pytest.org/en/latest/) como he mencionado mas arriba. 
 
-Ahora mismo solo tengo un unico test ya que no se me ocurre otro que peuda necesitar. El test consiste en comprobar si lo que recibe a traves de la API es una imagen. Para ello comprobamos el MIME Type del fichero y miramos si corresponde a una imagen, ya que no nos importa el formato de la misma.
+
+Realizo los siguiente tests a dia de hoy:
+1. Comprobar si lo recibido es una imagen
+2. Comprobar que se inserta una imagen a la base de datos
+3. Comprobar que se devuelve una imagen de la base de datos
+4. Comprobar que se eliminan una imagen de la base de datos. 
 ## Inciar microservicio
 
 Aunque solo muestra un ```Hello World``` para iniciar el microservicio lo único (en caso de que esten instaladas las dependencias) que hay que hacer es:
