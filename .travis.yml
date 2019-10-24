@@ -4,7 +4,11 @@ python:
   - "3.5"
   - "3.6"    
   - "3.7"
-
+services:
+  - mongodb
+before_script:
+  - sleep 15
+  - mongo mydb_test --eval 'db.createUser({user:"admin",pwd:"test",roles:["readWrite"]});'
 # command to install dependencies
 install:
   - make dependencias

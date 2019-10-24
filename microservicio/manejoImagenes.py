@@ -2,10 +2,11 @@ import pymongo
 import base64
 import ruamel.yaml
 
-yaml = ruamel.yaml.YAML()
-data = yaml.load(open('microservicio/config_db.cfg'))
+#Para leer el fichero de configurarcion
+#yaml = ruamel.yaml.YAML()
+#data = yaml.load(open('microservicio/config_db.cfg'))
 
-def conectarMongo():
+def conectarMongo(data):
     client = pymongo.MongoClient("mongodb+srv://"+data['db_user']+":"+data['db_password']+"@"+data['db_host']+"/"+data['db_name']+"?retryWrites=true&w=majority")
     return client
 
