@@ -6,4 +6,4 @@ pytest
 requests
 pymongo
 dnspython
-ruamel.yaml
+ruamel.yaml==0.15.94 
