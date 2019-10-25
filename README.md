@@ -10,8 +10,6 @@
 - [Buscador de Wally](#buscador-de-wally)
   - [Índice de contenidos](#%c3%8dndice-de-contenidos)
   - [Descripción](#descripci%c3%b3n)
-  - [Implementación](#implementaci%c3%b3n)
-  - [Almacenamiento](#almacenamiento)
   - [Dataset de datos a usar](#dataset-de-datos-a-usar)
   - [Herramienta de construcción](#herramienta-de-construcci%c3%b3n)
   - [Sistema CI](#sistema-ci)
@@ -22,24 +20,7 @@
 ## Descripción
 Este proyecto es para la asignatura de Infraestructura Virtual. Este proyecto consiste en enviar una imagen mediante un formulario web, procesarla buscando a Wally y devolver una imagen donde indique la ubicación del mismo.
 
-## Implementación
-
-La implementación de la API la desarrollare en [Python](https://www.python.org) usando [Flask](https://palletsprojects.com/p/flask/)+[Flask-restful](https://flask-restful.readthedocs.io/en/latest/).. Esta elección se debe a que quiero usar el mismo lenguaje para ofrecer la API como para realizar el procesamiento de la imagen. 
-
-Para encontrar la ubicación de Wally usare [Keras](https://keras.io/) mas específicamente [Faster R-CNN](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a). __El entrenamiento de la red neuronal no es parte del microservicio__. Podriamos usar una funcionalidad que ya existiera o usar una entrenada por mi como quiero intentar en este caso. 
-
-Para la gestión de entornos usare [Anaconda](https://www.anaconda.com/) y para los test usare [pytest](https://docs.pytest.org/en/latest/). Esta elección la he hecho ya que creo que son buenas (y fáciles) herramientas para la iniciación en  gestión de entornos y test. 
-
-
-
-Para tener un registro de todo lo ocurrido en el sistema utilizare  [logging](https://docs.python.org/3/howto/logging.html). Utilizare como base de referencia [esta presentacion](https://static.sched.com/hosted_files/pycones19/48/El%20show%20de%20Truman.pdf) de [@Jimena_y_yo](https://twitter.com/jimena_y_yo) (Gracias a [JJ](github.com/JJ) por darnos la pista).
-
-
-## Almacenamiento
-Todas las imágenes recibidas, serán almacenadas. (al menos por un tiempo). Esta decisión ha sido debida a que para poder reentrenar  la red natural puedes sernos de utilizad imágenes dadas por los usuario y que no están en nuestro dataset inicial. Asi podemos tener cada vez un sistema mas preciso con son predicciones. Aunque repito, el entrenamiento del sistema no forma parte del microservicio. 
-
-Para esto usaría [MongoDB](https://www.mongodb.com/es) mas específicamente la librería [PyMongo](https://api.mongodb.com/python/current/).
-
+Las herramientas que usamos en el proyecto se pueden ver [aqui](docs/herramientas.md).
 
 ## Dataset de datos a usar
 
@@ -97,6 +78,7 @@ Realizo los siguiente tests a dia de hoy:
 2. Comprobar que se inserta una imagen a la base de datos
 3. Comprobar que se devuelve una imagen de la base de datos
 4. Comprobar que se eliminan una imagen de la base de datos. 
+5. Comprobar si se pueden eliminar todas las imagenes de la base de datos. 
 ## Inciar microservicio
 
 Aunque solo muestra un ```Hello World``` para iniciar el microservicio lo único (en caso de que esten instaladas las dependencias) que hay que hacer es:
@@ -105,3 +87,5 @@ foo@bar:~$ python microservicio/main.py
 
  ``` 
  Tambien podemos usar ```make init```,  de esta forma primero instalara las dependencias y luego iniciara el microservicio
+
+ La forma de ver si funciona el microservicio es accediendo desde el navegador a [localhost:5000](localhost:5000). Tambien he puesto el ejemplo de como iria implementando la descarga de una imagen, esto se puede probar desde [localhost:5000/download](localhost:5000/download).
