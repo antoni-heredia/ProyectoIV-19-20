@@ -1,36 +1,31 @@
-import pymongo
 import base64
-import ruamel.yaml
+from tinydb import TinyDB, Query
 
-#Para leer el fichero de configurarcion
-#yaml = ruamel.yaml.YAML()
-#data = yaml.load(open('microservicio/config_db.cfg'))
-
-def conectarMongo(data):
-    client = pymongo.MongoClient("mongodb"+data['db_srv']+"://"+data['db_user']+":"+data['db_password']+"@"+data['db_host']+"/"+data['db_name']+"?retryWrites=true&w=majority")
-    return client
+def conectarMongo():
+    db = TinyDB('baseDatos/imagenes.json')
+    return db
 
 def guardarImagen(client,imagen,nombre):
-    mydb = client["Wally"]
-    mycol = mydb["imagenesEntrada"]
-    mydict = { "nombre": nombre, "imagen": base64.b64encode(imagen)}
-    x = mycol.insert_one(mydict)
+    mydb = client.table('entrada')
+    imagen = base64.b64encode(imagen)
+    mydict = { "nombre": nombre, "imagen": str(imagen)}
+    x = mydb.insert(mydict)
 
 def eliminarTodasImagenes(client):
-    mydb = client["Wally"]
-    mycol = mydb["imagenesEntrada"]
-    x = mycol.delete_many({})
+    mydb = client.table('entrada')
+    x = mydb.purge()
 
+def eliminarImagen(client,nombre):
+    mydb = client.table('entrada')
+    Imagen = Query()
+    mydb.remove(Imagen.nombre == nombre)
 
 def devolverImagen(client,nombre):
-    mydb = client["Wally"]
-    mycol = mydb["imagenesEntrada"]
-    myquery = { "nombre": "wally" }
-    return mycol.find(myquery) #por si hay mas de una imagen con el mismo nombre que pueda recibir todas
+    mydb = client.table('entrada')
+    Imagen = Query()
+    return  mydb.search(Imagen.nombre == nombre)
+
 
 def devolverTodasImagenes(client):
-    client = conectarMongo()
-    mydb = client["Wally"]
-    mycol = mydb["imagenesEntrada"]
-    return mycol.find()
-
+    mydb = client.table('entrada')
+    return mydb.all()

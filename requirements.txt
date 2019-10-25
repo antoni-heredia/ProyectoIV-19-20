@@ -4,6 +4,4 @@ flask_restful
 markdown
 pytest
 requests
-pymongo==3.4.0
-dnspython
-ruamel.yaml==0.15.94 
+TinyDB
