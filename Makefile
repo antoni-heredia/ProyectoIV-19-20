@@ -11,7 +11,7 @@ init: dependencias #Inicia el microservicio
 initCircle: dependenciasCircle #Inicia el microservicio
 
 tests: #Para relizar los test
-	python -m pytest
+	python -m pytest test/test_img.py   
 	
 start:
 	pm2 start "gunicorn --bind 0.0.0.0:8080 app:app" --name microservicio
