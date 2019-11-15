@@ -1,7 +1,12 @@
-numpy
 flask
 flask_restful
 markdown
 pytest
 requests
 TinyDB
+gunicorn
+pika
+tensorflow
+Pillow
+matplotlib
+argparse

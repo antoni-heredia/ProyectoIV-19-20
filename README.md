@@ -14,7 +14,8 @@
   - [Herramienta de construcción](#herramienta-de-construcci%c3%b3n)
   - [Sistema CI](#sistema-ci)
   - [Tests](#tests)
-  - [Inciar microservicio](#inciar-microservicio)
+  - [Herramienta de construcción](#herramienta-de-construcci%c3%b3n-1)
+  - [Creditos](#creditos)
 
 
 ## Descripción
@@ -79,7 +80,10 @@ Realizo los siguiente tests a dia de hoy:
 3. Comprobar que se devuelve una imagen de la base de datos
 4. Comprobar que se eliminan una imagen de la base de datos. 
 5. Comprobar si se pueden eliminar todas las imagenes de la base de datos. 
-## Inciar microservicio
+## Herramienta de construcción
+
+    buildtool: Makefile
+
 
 Aunque solo muestra un ```Hello World``` para iniciar el microservicio lo único (en caso de que esten instaladas las dependencias) que hay que hacer es:
  ```console
@@ -89,3 +93,11 @@ foo@bar:~$ python microservicio/main.py
  Tambien podemos usar ```make init```,  de esta forma primero instalara las dependencias y luego iniciara el microservicio
 
  La forma de ver si funciona el microservicio es accediendo desde el navegador a [localhost:5000](localhost:5000). Tambien he puesto el ejemplo de como iria implementando la descarga de una imagen, esto se puede probar desde [localhost:5000/download](localhost:5000/download).
+
+ Para probar que se el microservicio recibe una imagen podemos hacer uso de 
+ ```console
+  foo@bar:~$ curl -F "name=nombre_de_la_imagen" -F "image=@ruta_de_la_imagen" 0.0.0.0:8080 
+  ```
+
+  ## Creditos
+  El modelo usado para encontrar a Wally ya existia. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 

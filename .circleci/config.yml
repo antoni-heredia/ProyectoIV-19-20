@@ -7,7 +7,10 @@ jobs:
     steps:
       # Obtenemos codigo del repo
       - checkout
-      
+      - run:
+          name: Intalar rabbitMq
+          command: |
+            sudo apt-get install rabbitmq-server
       # Instalar dependencias e iniciar
       - run:
           name: Instalar dependencias e iniciar
