@@ -16,6 +16,10 @@ tests: #Para relizar los test
 start:
 	pm2 start "gunicorn --bind 0.0.0.0:8080 app:app" --name microservicio
 	pm2 start microservicio/recieve.py --name recieve
+	
+start-heroku:
+	gunicorn --bind 0.0.0.0 app:app
+	python microservicio/recieve.py
 stop:
 	pm2 stop microservicio
 	pm2 stop recieve
