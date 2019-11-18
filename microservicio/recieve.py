@@ -3,11 +3,18 @@ import pika
 import Imagenes as img
 import find_wally_pretty as fw
 import base64
+import os
 from PIL import Image
 from io import BytesIO
 
-connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost'))
+if not 'HEROKU' in os.environ:
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+
+else:
+    url = os.environ.get('CLOUDAMQP_URL', 'amqp://guest:guest@localhost:5672/%2f')
+    params = pika.URLParameters(url)
+    connection = pika.BlockingConnection(params)
+
 channel = connection.channel()
 
 channel.queue_declare(queue='colaImagenes')
