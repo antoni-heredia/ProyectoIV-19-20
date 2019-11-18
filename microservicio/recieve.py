@@ -16,6 +16,8 @@ channel.queue_declare(queue='colaImagenes')
 
 def callback(ch, method, properties, body):
     db = img.Imagenes()
+    db.conectarMongo()
+
     imagen = body.decode().split(":")[1]
     nombre = body.decode().split(":")[0]
 
@@ -28,7 +30,6 @@ def callback(ch, method, properties, body):
     pil_img.save(buff, format="JPEG")
     new_image_string = base64.b64encode(buff.getvalue()).decode("utf-8")
 
-    db.conectarMongo()
     db.guardarImagenString(new_image_string,nombre)
 
 

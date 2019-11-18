@@ -9,7 +9,6 @@ class Imagenes:
     def conectarMongo(self):
         db = TinyDB('baseDatos/imagenes.json')
         self.client = db
-
     def guardarImagen(self,imagen,nombre):
         mydb = self.client.table('entrada')
         imagen = base64.b64encode(imagen)
@@ -39,6 +38,9 @@ class Imagenes:
     def devolverTodasImagenes(self):
         mydb = self.client.table('entrada')
         return mydb.all()
+    def devolverTodasImagenesNombre(self):
+        mydb = self.client.table('entrada')
+        return  [r['nombre'] for r in mydb]
 
 a = Imagenes()
 a.conectarMongo()
