@@ -4,7 +4,6 @@ from flask import jsonify
 import os
 def encolar(imagen, nombre):
     if not 'HEROKU' in os.environ:
-        logging.basicConfig()
         connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 
     else:

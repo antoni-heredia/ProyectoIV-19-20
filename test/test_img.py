@@ -12,15 +12,14 @@ def test_imagen(url):
     response = requests.get(url, stream=True)
     assert response.headers['Content-Type'].split("/")[0] == "image"
 
-@pytest.mark.parametrize("url", ["https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555285691/shape/mentalfloss/waldomain.png","https://miro.medium.com/max/1500/1*yO4EVVeBHYIrxKXDGY_-zw.jpeg"])
-def test_guardarImagen(url):
+def test_eliminarTodasImagenes():
     db = img.Imagenes()
     db.conectarMongo()
-    response = requests.get(url, stream=True)
-    db.guardarImagen(response.content,"Wally")
-    imagen = db.devolverImagen("Wally")
-    assert len(imagen) != 0
-    db.eliminarImagen("Wally")
+    response = requests.get("https://miro.medium.com/max/1500/1*yO4EVVeBHYIrxKXDGY_-zw.jpeg", stream=True)
+    db.guardarImagen(response.content,"Wally")      
+    db.eliminarTodasImagenes()
+    imagenes = db.devolverTodasImagenes()
+    assert len(imagenes) == 0
 
 def test_eliminarUnaImagen():
     db = img.Imagenes()
@@ -40,11 +39,13 @@ def test_devolverUnaImagen():
     assert len(imagen) != 0
     db.eliminarImagen("Wally")
 
-def test_eliminarTodasImagenes():
+
+
+@pytest.mark.parametrize("url", ["https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555285691/shape/mentalfloss/waldomain.png","https://miro.medium.com/max/1500/1*yO4EVVeBHYIrxKXDGY_-zw.jpeg"])
+def test_guardarImagen(url):
     db = img.Imagenes()
     db.conectarMongo()
-    response = requests.get("https://miro.medium.com/max/1500/1*yO4EVVeBHYIrxKXDGY_-zw.jpeg", stream=True)
-    db.guardarImagen(response.content,"Wally")      
-    db.eliminarTodasImagenes()
-    imagenes = db.devolverTodasImagenes()
-    assert len(imagenes) == 0
+    response = requests.get(url, stream=True)
+    db.guardarImagen(response.content,"prueba")
+    imagen = db.devolverImagen("prueba")
+    assert len(imagen) != 0

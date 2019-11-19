@@ -7,6 +7,9 @@ python:
 install:
   - sudo apt-get install rabbitmq-server
   - make dependencias
+  - make pm2
 # command to run tests
 script:
+  - make start
   - make tests
+  - make stop
