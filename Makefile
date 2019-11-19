@@ -24,6 +24,9 @@ start:
 	pm2 start "gunicorn --bind 0.0.0.0:8080  app:app" --name microservicio
 	pm2 start microservicio/recieve.py --name recieve
 
+start-sin-pm2:
+	gunicorn --bind 0.0.0.0:8080  app:app & python microservicio/recieve.py &
+
 start-heroku:
 	gunicorn --bind 0.0.0.0:$(PORT)  app:app
 stop:

@@ -12,8 +12,7 @@ jobs:
           name: Intalar rabbitMq
           command: |
             sudo apt-get install rabbitmq-server
-      - run: make pm2
-      - run: make start
+      - run: make start-sin-pm2
       # Instalar dependencias e iniciar
       - run:
           name: Instalar dependencias e iniciar
