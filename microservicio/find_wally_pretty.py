@@ -9,7 +9,7 @@ from object_detection.utils import visualization_utils as vis_util
 from object_detection.utils import label_map_util
 from io import BytesIO
 
-
+import cv2
 
 
 def load_image_into_numpy_array(image):
@@ -20,7 +20,7 @@ def load_image_into_numpy_array(image):
 
 
 
-
+'''
 def buscarWally(imagen):
     model_path = 'microservicio/trained_model/frozen_inference_graph.pb'
 
@@ -63,5 +63,13 @@ def buscarWally(imagen):
 
             
             return image_np
-            
-            
+'''
+def buscarWally(imagen):
+    image_np = load_image_into_numpy_array(Image.open(BytesIO(imagen)) )
+    y,x,z = image_np.shape
+    startx = x//2
+    starty = y//2 
+    img = cv2.circle(image_np,(startx,starty), 50, (255,0,0), 4)
+
+    return image_np
+    
