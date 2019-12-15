@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pika
+import pika,os,urlparse
 import Imagenes as img
 import find_wally_pretty as fw
 import base64
@@ -11,8 +11,10 @@ if not 'HEROKU' in os.environ:
     connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 
 else:
-    url = os.environ.get('CLOUDAMQP_URL', 'amqp://guest:guest@localhost:5672/%2f')
-    params = pika.URLParameters(url)
+    url_str = os.environ.get('CLOUDAMQP_URL', 'amqp://guest:guest@localhost//')
+    url = urlparse.urlparse(url_str)
+    params = pika.ConnectionParameters(host=url.hostname, virtual_host=url.path[1:],
+    credentials=pika.PlainCredentials(url.username, url.password))
     connection = pika.BlockingConnection(params)
 
 channel = connection.channel()
