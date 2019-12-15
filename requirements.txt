@@ -10,3 +10,4 @@ tensorflow
 Pillow
 matplotlib
 argparse
+cv2
