@@ -9,9 +9,6 @@ from object_detection.utils import visualization_utils as vis_util
 from object_detection.utils import label_map_util
 from io import BytesIO
 
-import cv2
-
-
 def load_image_into_numpy_array(image):
   (im_width, im_height) = image.size
   return np.array(image.getdata()).reshape(
