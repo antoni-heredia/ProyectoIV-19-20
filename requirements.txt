@@ -10,4 +10,3 @@ tensorflow
 Pillow
 matplotlib
 argparse
-opencv-python

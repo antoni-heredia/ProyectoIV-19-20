@@ -3,7 +3,7 @@ import numpy as np
 import sys
 import tensorflow as tf
 import matplotlib
-from PIL import Image
+from PIL import Image, ImageDraw
 import argparse
 from object_detection.utils import visualization_utils as vis_util
 from object_detection.utils import label_map_util
@@ -65,11 +65,24 @@ def buscarWally(imagen):
             return image_np
 '''
 def buscarWally(imagen):
+    imagen = Image.open(BytesIO(imagen))
+    draw = ImageDraw.Draw(imagen)
+    image_np = load_image_into_numpy_array(imagen)
+    y,x,z = image_np.shape
+
+    startx = x//2
+    starty = y//2 
+    draw.ellipse((startx-50, starty-50, startx+50, starty+50),width=10, outline=(255,0,0,0))
+    image_np = load_image_into_numpy_array(imagen)
+
+    '''
     image_np = load_image_into_numpy_array(Image.open(BytesIO(imagen)) )
+
     y,x,z = image_np.shape
     startx = x//2
     starty = y//2 
     img = cv2.circle(image_np,(startx,starty), 50, (255,0,0), 4)
+    '''
 
     return image_np
     
