@@ -21,7 +21,6 @@ channel.queue_declare(queue='colaImagenes')
 
 
 def callback(ch, method, properties, body):
-    print("recibido")
 
     db = img.Imagenes()
     db.conectarMongo()

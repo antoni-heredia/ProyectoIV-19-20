@@ -19,7 +19,7 @@ class Imagenes:
         mydb = self.client.table('entrada')
         mydict = { "nombre": nombre, "imagen": imagen}
         x = mydb.insert(mydict)
-    
+        print("imagen insertada")
     def eliminarTodasImagenes(self):
         mydb = self.client.table('entrada')
         x = mydb.purge()
