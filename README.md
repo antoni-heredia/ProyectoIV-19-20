@@ -13,6 +13,7 @@
   - [Dataset de datos a usar](#dataset-de-datos-a-usar)
   - [Herramienta de construcción](#herramienta-de-construcci%c3%b3n)
   - [API](#api)
+  - [Despliegue en PaaS](#despliegue-en-paas)
   - [Creditos](#creditos)
 
 
@@ -30,26 +31,15 @@ Buscando por github he encontrado un repositorio con imágenes ya clasificadas d
 La herramienta de construcción que usaremos es ```makefile```. Para ello he creado el siguiente fichero [Makefile](./Makefile), donde se encuentra toda la información. 
 
     buildtool: Makefile
-
-Para instalar las dependencias basta con ejecutar:
-```console
-foo@bar:~$ make dependencias
-```
-Y para ejecutar los test debemos ejecutar:
-```console
-foo@bar:~$ make tests
-```
-
-Para iniciar/detener/reiniciar/eliminar el servicio tenemos varias opciones dentro del makefile. 
-```console
-foo@bar:~$ make <start|stop|restart|delete>
-```
-
- ## API
-
- Para probar la API, una vez que esta iniciado el servicio con make start, podemos ir a [http://0.0.0.0:8080/doc/](http://0.0.0.0:8080/doc/). Ahi se encuentra una herramienta construida con [swagger.io](swagger.io) donde podemos probar las rutas que tengo actualmente en la API. 
+Podemos ver mas información sobre las herramientas de construción [aqui](docs/construcion.md)
+## API
 
  Para mas información sobre las distintas rutas de la API y los test realizados sobre la misma consultar el fichero [api.md](docs/api.md).
 
-  ## Creditos
-  El modelo usado para encontrar a Wally ya existia. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 
+## Despliegue en PaaS
+Para el despliegue en un [PaaS](https://azure.microsoft.com/es-es/overview/what-is-paas/) he elegido en primera instancia [Heroku](https://dashboard.heroku.com/). La explicación de como como configurar Heroku se encuentra [aqui](docs/paas.md).
+
+    Despliegue: https://wallyfinder.herokuapp.com
+
+## Creditos
+El modelo usado para encontrar a Wally ya existia. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 

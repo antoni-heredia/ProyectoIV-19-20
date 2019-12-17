@@ -1,5 +1,8 @@
 # API
-Aunque no tengo todavia completamente desplegado el sistema. Podemos ver el funcionamiento de swagger desde [aquí](https://wallyfinder.herokuapp.com/doc/). No recomiendo utilizar todavia el metodo post sobre ```https://wallyfinder.herokuapp.com/<nombre>``` ya que la detección de objetos sobre la imagen consume demasiada RAM y al ser una capa gratuita el sistema se cae. 
+
+ Para probar la API, una vez que esta iniciado el servicio con make start, podemos ir a [http://0.0.0.0:8080/doc/](http://0.0.0.0:8080/doc/). Ahi se encuentra una herramienta construida con [swagger.io](swagger.io) donde podemos probar las rutas que tengo actualmente en la API. 
+
+Aunque no tengo todavia completamente desplegado el sistema. Podemos ver el funcionamiento de swagger desde [aquí](https://wallyfinder.herokuapp.com/doc/). 
 
 ## Diferentes rutas de la api
 ### /status
@@ -10,7 +13,7 @@ Nos devolverá una lista de todas las imágenes que existen en el sistema con el
 #### delete
 Nos sirve para eliminar TODAS las imagenes que tengamos en la base de datos.  Devolverá ```{'Imagenes eliminada': 'true'}``` con el código 200
 
-### /imagen/<nombre>
+### /imagen/\<nombre\>
 #### get
 Nos sirve para descargar una imagen a partir de su nombre. Si la imagen existe la devuelve y ademas nos da el código 200. En caso de que no exista devolverá ```{'Imagen encontrada':'False'}``` con el código 404.
 #### post

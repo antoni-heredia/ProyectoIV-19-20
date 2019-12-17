@@ -7,7 +7,6 @@ def encolar(imagen, nombre):
         connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 
     else:
-        print("encolado")
         url = os.environ.get('CLOUDAMQP_URL', 'amqp://guest:guest@localhost:5672/%2f')
         params = pika.URLParameters(url)
         connection = pika.BlockingConnection(params)

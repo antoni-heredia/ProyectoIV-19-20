@@ -38,9 +38,7 @@ class Imagenes:
     def devolverTodasImagenes(self):
         mydb = self.client.table('entrada')
         return mydb.all()
+        
     def devolverTodasImagenesNombre(self):
         mydb = self.client.table('entrada')
         return  [r['nombre'] for r in mydb]
-
-a = Imagenes()
-a.conectarMongo()
