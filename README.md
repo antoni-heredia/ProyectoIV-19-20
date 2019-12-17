@@ -37,7 +37,7 @@ Podemos ver mas información sobre las herramientas de construción [aqui](docs/
  Para mas información sobre las distintas rutas de la API y los test realizados sobre la misma consultar el fichero [api.md](docs/api.md).
 
 ## Despliegue en PaaS
-Para el despliegue en un [PaaS](https://azure.microsoft.com/es-es/overview/what-is-paas/) he elegido en primera instancia [Heroku](https://dashboard.heroku.com/). La explicación de como como configurar Heroku se encuentra [aqui](docs/paas.md).
+Para el despliegue en un [PaaS](https://azure.microsoft.com/es-es/overview/what-is-paas/) he elegido en primera instancia [Heroku](https://dashboard.heroku.com/). La explicación de como como configurar Heroku se encuentra [aqui](docs/paas.md). La elección de Heroku es por la simplicidad y ademas es gratuito. Mas adelante tengo pensado desplegar en Oracle o Azure, para usar plataformas con mas potencia, ya que en Heroku, con la capa gratuita no puedo correr la aplicación original y tengo un mockup que simplemente pinta un circulo en el centro de la imagen a pesar de que es ya funcional. 
 
     Despliegue: https://wallyfinder.herokuapp.com
 
