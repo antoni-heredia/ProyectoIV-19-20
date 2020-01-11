@@ -1,0 +1,41 @@
+# Git
+.git
+.gitignore
+
+# CI
+.circleci/
+.travis.yml
+
+# Docker
+docker-compose.yml
+.docker
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
+*.py[cod]
+*/*.py[cod]
+*/*/*.py[cod]
+*/*/*/*.py[cod]
+
+.pytest_cache/
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+
+
+
+# Otros
+Procfile
+Makefile
+README.md
+LICENSE
+.env
+.vscode/
+docs/
+test/
