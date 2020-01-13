@@ -14,6 +14,7 @@
   - [Herramienta de construcción](#herramienta-de-construcci%c3%b3n)
   - [API](#api)
   - [Despliegue en PaaS](#despliegue-en-paas)
+  - [Taperización](#taperizaci%c3%b3n)
   - [Creditos](#creditos)
 
 
@@ -40,6 +41,8 @@ Podemos ver mas información sobre las herramientas de construción [aqui](docs/
 Para el despliegue en un [PaaS](https://azure.microsoft.com/es-es/overview/what-is-paas/) he elegido en primera instancia [Heroku](https://dashboard.heroku.com/). La explicación de como como configurar Heroku se encuentra [aqui](docs/paas.md). La elección de Heroku es por la simplicidad y ademas es gratuito. Mas adelante tengo pensado desplegar en Oracle o Azure, para usar plataformas con mas potencia, ya que en Heroku, con la capa gratuita no puedo correr la aplicación original y tengo un mockup que simplemente pinta un circulo en el centro de la imagen a pesar de que es ya funcional. 
 
     Despliegue: https://wallyfinder.herokuapp.com
+
+## Taperización
 
 ## Creditos
 El modelo usado para encontrar a Wally ya existia. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 

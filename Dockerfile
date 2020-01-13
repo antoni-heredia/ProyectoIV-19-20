@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install rabbitmq-server -y
 COPY . /app
 
 WORKDIR /app
-RUN python microservicio/receiver.py &
 
-# Finalmente ejecutamos la app escuchando en el puerto definido en PORT
-CMD gunicorn -b 0.0.0.0:${PORT} app:app
+
+CMD rabbitmq-server &  ( sleep 5 &&  python microservicio/recieve.py  ) & gunicorn -b 0.0.0.0:${PORT} app:app
