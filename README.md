@@ -49,9 +49,9 @@ El proceso de la creación del [Dockerfile](Dockerfile) viene explicada en este 
 
 El despliegue usando varios PaaS viene explicada [aqui](docs/despliegue_taper.md). 
 
-El despliegue en PaaS con Docker esta realizado en la siguiente [dirección]():
+El despliegue en PaaS con Docker esta realizado en la siguiente [dirección](https://wallyfinder.azurewebsites.net):
 
-	Contenedor: https://hub.docker.com/r/anthercas/wallyfinder
+	Contenedor: https://wallyfinder.azurewebsites.net
 
 El despliegue en Heroku usando Docker lo encontramos [aqui](https://wallyfinder.herokuapp.com/status).
 
