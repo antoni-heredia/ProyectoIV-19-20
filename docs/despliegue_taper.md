@@ -25,13 +25,17 @@ Una vez creado el fichero realizaremos lo siguiente para poder loggearnos con nu
 ```
 foo@bar:~$ heroku login
 ```
-Aunque ya tenemos una aplicación desplegada en heroku, crearemos otra que sea 100% desplegada con contenedores. 
+
+Como ya tenemos la aplicación creada tenemos que indicarle a heroku que a partir de ahora nuestra app se desplegara mediante contenedores. 
 
 ```
-foo@bar:~$ heroku create wallyfinders
+foo@bar:~$ heroku stack:set container -a wallyfinder
 ```
 
-Y tendremos que indicar que nuestra aplicación va a desplegarse a ahora con un contenedor. 
+Actualizamos la información del repositorio git de Heroku y listo. 
+
 ```
-foo@bar:~$ heroku stack:set container
+foo@bar:~$ git push heroku master
 ```
+
+Una vez acabe el proceso el contenedor ya estar configurado y desplegado en Heroku. 

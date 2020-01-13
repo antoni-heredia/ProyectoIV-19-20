@@ -47,12 +47,25 @@ Para el despliegue en un [PaaS](https://azure.microsoft.com/es-es/overview/what-
 
 El proceso de la creación del [Dockerfile](Dockerfile) viene explicada en este [documento](docs/taperización.md). 
 
-El despliegue usando varios PaaS viene explicada [aqui](). 
+El despliegue usando varios PaaS viene explicada [aqui](docs/despliegue_taper.md). 
 
-El despligue en PaaS con Docker esta realizado en la siguiente dirección:
+El despliegue en PaaS con Docker esta realizado en la siguiente [dirección]():
 
 	Contenedor: https://hub.docker.com/r/anthercas/wallyfinder
 
+El despliegue en Heroku usando Docker lo encontramos [aqui](https://wallyfinder.herokuapp.com/status).
+
+Ademas he añadido la automatización de la creación y inicio del contenedor.
+Para hacer el build basta con ejecutar:
+```console
+foo@bar:~$ make contruir-taper
+```
+
+Y para lanzar el servidor desde el contenedor ejecutamos
+```console
+foo@bar:~$ make iniciar-taper
+```
+que a su vez también ejecutara contruir-taper como dependencia. 
 ## DockerHub
 La dirección de DockerHub donde se encuentra el contenedor es la siguiente:
 
@@ -65,6 +78,5 @@ foo@bar:~$ docker pull anthercas/wallyfinder:latest
 
 foo@bar:~$ docker run -e PORT=$PORT -p $HOST_PORT:$PORT wallyfinder .
 ```
-
 ## Creditos
 El modelo usado para encontrar a Wally ya existia. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 

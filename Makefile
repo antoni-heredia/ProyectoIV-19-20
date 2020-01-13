@@ -40,3 +40,11 @@ delete:
 restart: 
 	pm2 restart microservicio
 	pm2 restart recieve
+
+contruir-taper:
+	sudo docker build -t anthercas/wallyfinder .
+
+iniciar-taper: contruir-taper
+	export HOST_PORT=5050
+	export PORT=5050
+	sudo docker run -e PORT=$PORT -p $HOST_PORT:$PORT anthercas/wallyfinder
