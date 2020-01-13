@@ -1,7 +1,7 @@
 FROM python:3.7
 
 # Datos propios
-LABEL maintainer="Antonio Jesús Heredia (a.heredia.castillo@@gmail.com)"
+LABEL maintainer="Antonio Jesús Heredia (a.heredia.castillo@gmail.com)"
 
 EXPOSE $PORT
 

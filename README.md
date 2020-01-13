@@ -14,7 +14,8 @@
   - [Herramienta de construcción](#herramienta-de-construcci%c3%b3n)
   - [API](#api)
   - [Despliegue en PaaS](#despliegue-en-paas)
-  - [Taperización](#taperizaci%c3%b3n)
+  - [Taperización con docker](#taperizaci%c3%b3n-con-docker)
+  - [DockerHub](#dockerhub)
   - [Creditos](#creditos)
 
 
@@ -42,7 +43,28 @@ Para el despliegue en un [PaaS](https://azure.microsoft.com/es-es/overview/what-
 
     Despliegue: https://wallyfinder.herokuapp.com
 
-## Taperización
+## Taperización con docker
+
+El proceso de la creación del [Dockerfile](Dockerfile) viene explicada en este [documento](docs/taperización.md). 
+
+El despliegue usando varios PaaS viene explicada [aqui](). 
+
+El despligue en PaaS con Docker esta realizado en la siguiente dirección:
+
+	Contenedor: https://hub.docker.com/r/anthercas/wallyfinder
+
+## DockerHub
+La dirección de DockerHub donde se encuentra el contenedor es la siguiente:
+
+    URL: https://hub.docker.com/r/anthercas/wallyfinder
+
+Los pasos para descargar y ejecutar el contenedor en local son: 
+
+```console
+foo@bar:~$ docker pull anthercas/wallyfinder:latest
+
+foo@bar:~$ docker run -e PORT=$PORT -p $HOST_PORT:$PORT wallyfinder .
+```
 
 ## Creditos
 El modelo usado para encontrar a Wally ya existia. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 
