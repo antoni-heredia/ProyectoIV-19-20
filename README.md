@@ -83,7 +83,7 @@ foo@bar:~$ docker run -e PORT=$PORT -p $HOST_PORT:$PORT wallyfinder .
 
 Para realizar el provisionamiento de nuestro proyecto vamos a hacer uso de dos herramientas muy conocidas como son Ansible y Vagrant.
     
-    Provisionamiento: aprovisionamiento/playbook.yml
+    provision: aprovisionamiento/playbook.yml
     
 La documentación referente al aprovisionamiento [aquí](docs/aprovisionamiento.md)
 ## Creditos
