@@ -48,3 +48,7 @@ iniciar-taper: contruir-taper
 	export HOST_PORT=5050
 	export PORT=5050
 	sudo docker run -e PORT=$PORT -p $HOST_PORT:$PORT anthercas/wallyfinder
+vagrant-configuracion:
+	vagrant up --no-provision
+vagrant-provision:
+	vagrant provision

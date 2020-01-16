@@ -16,6 +16,7 @@
   - [Despliegue en PaaS](#despliegue-en-paas)
   - [Taperización con docker](#taperizaci%c3%b3n-con-docker)
   - [DockerHub](#dockerhub)
+  - [Aprovisionamiento](#aprovisionamiento)
   - [Creditos](#creditos)
 
 
@@ -78,5 +79,12 @@ foo@bar:~$ docker pull anthercas/wallyfinder:latest
 
 foo@bar:~$ docker run -e PORT=$PORT -p $HOST_PORT:$PORT wallyfinder .
 ```
+## Aprovisionamiento
+
+Para realizar el provisionamiento de nuestro proyecto vamos a hacer uso de dos herramientas muy conocidas como son Ansible y Vagrant.
+    
+    Provisionamiento: aprovisionamiento/playbook.yml
+    
+La documentación referente al aprovisionamiento [aquí](docs/aprovisionamiento.md)
 ## Creditos
 El modelo usado para encontrar a Wally ya existia. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 

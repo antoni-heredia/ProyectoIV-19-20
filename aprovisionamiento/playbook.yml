@@ -1,0 +1,55 @@
+# Indicamos el nombre del host
+- hosts: WallyFinder
+  tasks:
+
+    #Instalación de todas las dependencias necesarias en mi apliación
+    - name: Instalamos git
+      become: true
+      apt:
+        pkg: git
+        state: present
+        update_cache: true
+
+
+    - name: Python
+      become: true
+      apt:
+        pkg: python3
+        state: present
+
+    - name: NPM
+      become: true
+      apt:
+        pkg: npm
+        state: present
+
+    - name: Pip
+      become: true
+      apt:
+        pkg: python3-pip
+        state: present
+
+    - name: Instala PM2
+      become: true
+      npm:
+        name: pm2
+        global: yes
+
+    - name: RabbitMQ
+      become: true
+      apt:
+        pkg: rabbitmq-server
+        state: present
+
+    - name: Creando usuario
+      become: true
+      user:
+        name: peasousuario
+        shell: /bin/bash
+
+    - name: Añadimos la clave publica de mi usuario
+      become: true
+      authorized_key:
+        user: peasousuario
+        state: present
+        key: "{{ lookup('file', '/home/antonio/.ssh/id_rsa.pub') }}"
