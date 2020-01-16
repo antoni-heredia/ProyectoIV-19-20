@@ -81,10 +81,10 @@ foo@bar:~$ docker run -e PORT=$PORT -p $HOST_PORT:$PORT wallyfinder .
 ```
 ## Aprovisionamiento
 
-Para realizar el provisionamiento de nuestro proyecto vamos a hacer uso de dos herramientas muy conocidas como son Ansible y Vagrant.
+Para realizar el aprovisionamiento de nuestro proyecto vamos a hacer uso de dos herramientas muy conocidas como son Ansible y Vagrant.
     
     provision: aprovisionamiento/playbook.yml
     
 La documentación referente al aprovisionamiento [aquí](docs/aprovisionamiento.md)
 ## Creditos
-El modelo usado para encontrar a Wally ya existia. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 
+El modelo usado para encontrar a Wally ya existía. Yo he realizado una pequeña adaptación para poder usarlo en mi microservicio. El proyecto original es [HereIsWally](https://github.com/tadejmagajna/HereIsWally/). 

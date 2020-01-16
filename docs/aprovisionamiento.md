@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     # Usamos la dirección ip local con el puerto 1234 tanto en el anfitrión como en el invitado
     config.vm.network "forwarded_port", guest: 1234, host: 1234, host_ip: "127.0.0.1"
 
-    #Para evitar actualizaciones automaticas
+    #Para evitar actualizaciones automáticas
     config.vm.box_check_update = false
 
     # Vamos a usar virtualbox de forma local 
@@ -41,7 +41,7 @@ end
 ```
 Aunque todas las lineas están comentadas voy a repasar un poco todas las opciones. 
 
-Después del nombre que hemos puesto, nos encontramos la elección de la distribución. Aunque tal vez podria haber realizado pruebas con otras versiones, he elegido usar la versión 18.04 "bionic". Esto es asi ya que es la versión de Ubuntu donde he realizado todo el microservicio y todas las pruebas. 
+Después del nombre que hemos puesto, nos encontramos la elección de la distribución. Aunque tal vez podría haber realizado pruebas con otras versiones, he elegido usar la versión 18.04 "bionic". Esto es asi ya que es la versión de Ubuntu donde he realizado todo el microservicio y todas las pruebas. 
 
 La siguiente linea de configuración corresponde a cual va a ser la dirección y los puertos de la maquina anfitrión y la maquina invitado que va a usarla maquina virtual. En la siguiente configuración deshabilitamos las actualizaciones automáticas para evitar sistemas de compatibilidad. 
 
@@ -51,7 +51,7 @@ Por ultimo indicamos la ubicación del fichero de provisión. Como vamos a utili
 
 ## Aprovisionamiento con Ansible
 
-En este punto explicaremos como debe ser el fichero de configuración de Ansible para poder aprovisionar la maquina virtual. El fichero de conrfiguracion se encuentra en la ruta [aprovisionamiento/playbook.yml](../aprovisionamiento/playbook.yml) desde la raiz del proyecto. El contenido del fichero es el siguiente. 
+En este punto explicaremos como debe ser el fichero de configuración de Ansible para poder aprovisionar la maquina virtual. El fichero de configuración se encuentra en la ruta [aprovisionamiento/playbook.yml](../aprovisionamiento/playbook.yml) desde la raíz del proyecto. El contenido del fichero es el siguiente. 
 ```
 #Indicamos el nombre del host
 - hosts: WallyFinder
@@ -126,23 +126,23 @@ Para crear la maquina virtual usando el fichero [Vagrantfile](../Vagrantfile) qu
 ```
 foo@bar:~$ make vagrant-configuracion
 ```
-Esto leera el fichero de configuración y creara una maquina virtual con las especificaciones de la misma. 
+Esto leerá el fichero de configuración y creara una maquina virtual con las especificaciones de la misma. 
 
 Una vez que todo ha acabado, para ver si se ha realizado de forma correcta podemos usar el siguiente comando para ver si se ha creado de forma adecada. 
 ```
 foo@bar:~$ vagrant ssh
 ```
-Ahora ya solo nos falta aprovisionar esa maquina virtual que hemos creado. Para ello tenemos una directiva en el fichero Makefile y bastaria con ejecutar:
+Ahora ya solo nos falta aprovisionar esa maquina virtual que hemos creado. Para ello tenemos una directiva en el fichero Makefile y bastaría con ejecutar:
 
 ```
 foo@bar:~$ make vagrant-provision
 ```
 
-Si todo ha ido bien deberiamos ver una salida parecida a esta:
+Si todo ha ido bien deberíamos ver una salida parecida a esta:
 
 ![Texto alternativo](imagenes/salida_ansible.png)
 
-Para probar que se ha configurado de forma correcta podemos tambien probar que podamos conectarnos con la clave y usuario que hemos configurado. 
+Para probar que se ha configurado de forma correcta podemos también probar que podamos conectarnos con la clave y usuario que hemos configurado. 
 ```
 foo@bar:~$ ssh peasousuario@127.0.01 -p 2222
 ```
